@@ -25,7 +25,10 @@ table
     - weeks.each do |week|
       tr
         - week.each do |day|
-          td = day
+          -if day.month != current_date.month
+            td  
+          -else
+            td = day
 
 
 
