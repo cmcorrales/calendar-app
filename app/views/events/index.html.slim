@@ -1,3 +1,21 @@
+h1 Calendar
+
+table
+  thead
+    tr
+      th Sunday
+      th Monday
+      th Tuesday
+      th Wednesday
+      th Thursday
+      th Friday
+      th Saturday
+
+- weeks = (Time.zone.today.beginning_of_month..Time.zone.today.end_of_month).to_a.in_groups_of(7)
+
+- weeks.each do |week|
+    div #{week}
+
 h1 Events
 
 - if flash[:notice]
