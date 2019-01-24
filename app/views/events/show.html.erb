@@ -1,9 +1,0 @@
-<h1>Event: <%= @event.name %></h1>
-
-<p>date: <%= @event.date.strftime("%B %d, %Y") %></p>
-<p>start time: <%= @event.start_time.strftime("%l:%M %p") %></p>
-<p>end time: <%= @event.end_time.strftime("%l:%M %p") %></p>
-
-<!-- arguments: button content(as a string), WHICH ROUTE /events/4, WHAT HTTP VERB? {method: :delete} -->
-<%= button_to("Delete", event_path(@event),  { method: :delete }) %>
-<%= button_to("Edit", edit_event_path(@event), { method: :get }) %>

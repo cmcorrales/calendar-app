@@ -1,0 +1,23 @@
+- if @event.errors.any?
+   = @event.errors.full_messages.each do |message|
+    p = message
+
+= form_for(@event) do |f|
+  div.field
+  = f.label :name
+  = f.text_field :name
+
+  div.field
+  = f.label :date
+  = f.date_field :date
+
+  div.field
+  = f.label :start_time
+  = f.time_field :start_time
+
+  div.field
+  = f.label :end_time
+  = f.time_field :end_time
+
+  div.actions
+  = f.submit

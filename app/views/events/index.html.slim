@@ -1,0 +1,13 @@
+h1 Events
+
+- if flash[:notice]
+  flash[:notice]
+
+ul
+  - @events.each do |event|
+      li
+        = link_to event_path(event) do
+          = event.name
+
+= link_to new_event_path do
+  = "Add Another Event"
