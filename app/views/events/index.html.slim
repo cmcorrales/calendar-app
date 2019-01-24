@@ -1,6 +1,14 @@
-- first_day = Time.zone.today.beginning_of_month.beginning_of_week
-- last_day = Time.zone.today.end_of_month.end_of_week
+- current_date = params.fetch(:current_date, Time.zone.today).to_date
+- first_day = current_date.beginning_of_month.beginning_of_week
+- last_day = current_date.end_of_month.end_of_week
+
 - weeks = (first_day..last_day).to_a.in_groups_of(7)
+
+= link_to current_date: first_day - 1.day do
+  = "Previous"
+
+= link_to current_date: last_day + 1.day do
+  = "Next"
 
 table
   thead
