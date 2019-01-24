@@ -4,42 +4,50 @@
 
 - weeks = (first_day..last_day).to_a.in_groups_of(7)
 
-= link_to current_date: first_day - 1.day do
-  = "Previous"
 
-= link_to current_date: last_day + 1.day do
-  = "Next"
 
-h1 = current_date.strftime("%B")
-h2 = current_date.year
 
-table
-  thead
-    tr
-      th Sunday
-      th Monday
-      th Tuesday
-      th Wednesday
-      th Thursday
-      th Friday
-      th Saturday
+div class="calendar-label"
+  h1 = current_date.strftime("%B")
+  h2 = current_date.year
 
-  tbody
-    - weeks.each do |week|
+div class="calendar"
+
+  div class="arrow"
+    = link_to current_date: first_day - 1.day do
+      = "<"
+
+  table
+    thead class="header"
       tr
-        - week.each do |day|
-          -if day.month != current_date.month
-            td
-          -else
-            td
-              = day.day
-              br
-              - matching_events = @events.select do |event|
-                - event.date == day
-              - matching_events.each do |event|
-                = link_to event_path(event) do
-                  = event.name
+        th Sunday
+        th Monday
+        th Tuesday
+        th Wednesday
+        th Thursday
+        th Friday
+        th Saturday
+
+    tbody class="table-body"
+      - weeks.each do |week|
+        tr class="date-row"
+          - week.each do |day|
+            -if day.month != current_date.month
+              td class="cell #{day}"
+            -else
+              td class="cell #{day}"
+                = day.day
                 br
+                - matching_events = @events.select do |event|
+                  - event.date == day
+                - matching_events.each do |event|
+                  = link_to event_path(event) do
+                    = event.name
+                  br
+
+  div class="arrow"
+    = link_to current_date: last_day + 1.day do
+      = ">"
 
 - if flash[:notice]
   flash[:notice]
