@@ -31,20 +31,18 @@ table
           -if day.month != current_date.month
             td
           -else
-            td = day.day
-
-
-
-h1 Events
+            td
+              = day.day
+              br
+              - matching_events = @events.select do |event|
+                - event.date == day
+              - matching_events.each do |event|
+                = link_to event_path(event) do
+                  = event.name
+                br
 
 - if flash[:notice]
   flash[:notice]
-
-ul
-  - @events.each do |event|
-      li
-        = link_to event_path(event) do
-          = event.name
 
 = link_to new_event_path do
   = "Add Another Event"
