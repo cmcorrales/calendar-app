@@ -10,6 +10,9 @@
 = link_to current_date: last_day + 1.day do
   = "Next"
 
+h1 = current_date.strftime("%B")
+h2 = current_date.year
+
 table
   thead
     tr
@@ -26,9 +29,9 @@ table
       tr
         - week.each do |day|
           -if day.month != current_date.month
-            td  
+            td
           -else
-            td = day
+            td = day.day
 
 
 
