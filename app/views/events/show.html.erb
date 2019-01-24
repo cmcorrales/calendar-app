@@ -1,0 +1,12 @@
+<h1>Show</h1>
+
+<h1>Viewing Details for a event</h1>
+
+<p>name: <%= @event.name %></p>
+<p>date: <%= @event.date %></p>
+<p>start time: <%= @event.start_time %></p>
+<p>end time: <%= @event.end_time %></p>
+
+<!-- arguments: button content(as a string), WHICH ROUTE /events/4, WHAT HTTP VERB? {method: :delete} -->
+<%= button_to("Delete", event_path(@event),  { method: :delete }) %>
+<%= button_to("Edit", edit_event_path(@event), { method: :get }) %>
