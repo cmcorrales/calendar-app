@@ -1,4 +1,6 @@
-h1 Calendar
+- first_day = Time.zone.today.beginning_of_month.beginning_of_week
+- last_day = Time.zone.today.end_of_month.end_of_week
+- weeks = (first_day..last_day).to_a.in_groups_of(7)
 
 table
   thead
@@ -11,12 +13,13 @@ table
       th Friday
       th Saturday
 
-- first_day = Time.zone.today.beginning_of_month.beginning_of_week
-- last_day = Time.zone.today.end_of_month.end_of_week
-- weeks = (first_day..last_day).to_a.in_groups_of(7)
+  tbody
+    - weeks.each do |week|
+      tr
+        - week.each do |day|
+          td = day
 
-- weeks.each do |week|
-    div #{week}
+
 
 h1 Events
 
