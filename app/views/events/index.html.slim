@@ -33,9 +33,9 @@ div class="calendar"
         tr class="date-row"
           - week.each do |day|
             -if day.month != current_date.month
-              td class="cell #{day}"
+              td class="cell"
             -else
-              td class="cell #{day}"
+              td class="cell" id="#{day}"
                 = day.day
                 br
                 - matching_events = @events.select do |event|
