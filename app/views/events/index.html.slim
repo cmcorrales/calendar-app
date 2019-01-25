@@ -39,9 +39,10 @@ div class="calendar"
                   - event.date == day
                 - sorted_matching_events = matching_events.sort_by(&:start_time)
                 - sorted_matching_events.each do |event|
-                  = link_to event_path(event) do
-                    = "#{event.start_time.strftime("%l:%M %p")} - #{event.name}"
-                  br
+                  div class="calendar-events"
+                      = link_to event_path(event) do
+                        = "#{event.start_time.strftime("%l:%M %p")} - #{event.name}"
+                      br
 
   div class="arrow"
     = link_to current_date: last_day + 1.day do
@@ -50,5 +51,5 @@ div class="calendar"
 - if flash[:notice]
   flash[:notice]
 
-= link_to new_event_path do
-  = "Add Another Event"
+= button_to new_event_path, method: :get do
+  h2 + New Event

@@ -1,12 +1,12 @@
-h1 Event
+h1 Event Details:
   #{@event.name}
 
-p date:
-  #{@event.date.strftime("%B %d, %Y")}
-p start time:
-  #{@event.start_time.strftime("%l:%M %p")}
-p end time:
-  #{@event.end_time.strftime("%l:%M %p")}
+div class="event-details"
+  p #{@event.date.strftime("%B %d, %Y")}
+  p starts at
+    #{@event.start_time.strftime("%l:%M %p")}
+  p ends at
+    #{@event.end_time.strftime("%l:%M %p")}
 
 = button_to event_path(@event), { method: :delete } do
   = "Delete"
