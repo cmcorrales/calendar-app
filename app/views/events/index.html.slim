@@ -4,9 +4,6 @@
 
 - weeks = (first_day..last_day).to_a.in_groups_of(7)
 
-
-
-
 div class="calendar-label"
   h1 = current_date.strftime("%B")
   h2 = current_date.year
@@ -42,7 +39,7 @@ div class="calendar"
                   - event.date == day
                 - matching_events.each do |event|
                   = link_to event_path(event) do
-                    = event.name
+                    = "#{event.start_time.strftime("%l:%M %p")} - #{event.name}"
                   br
 
   div class="arrow"
