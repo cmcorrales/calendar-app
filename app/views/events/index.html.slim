@@ -37,7 +37,8 @@ div class="calendar"
                 br
                 - matching_events = @events.select do |event|
                   - event.date == day
-                - matching_events.each do |event|
+                - sorted_matching_events = matching_events.sort_by(&:start_time)
+                - sorted_matching_events.each do |event|
                   = link_to event_path(event) do
                     = "#{event.start_time.strftime("%l:%M %p")} - #{event.name}"
                   br

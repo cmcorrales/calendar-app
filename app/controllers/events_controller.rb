@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     @event = Event.create(event_params)
     if @event.valid?
       flash[:notice] = 'Successfully added event.'
-      redirect_to event_path(@event)
+      redirect_to events_path
     else
       render :new
     end
