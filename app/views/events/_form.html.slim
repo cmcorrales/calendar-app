@@ -1,6 +1,6 @@
 - if @event.errors.any?
-   = @event.errors.full_messages.each do |message|
-    p = message
+   = @event.errors.full_messages.map do |message|
+    = message
 
 div class="form-container"
   = form_for(@event) do |f|
